@@ -10,6 +10,29 @@ namespace Challenge_AmericaVirtual.Services
 {
     public class UserServices
     {
+        public static bool InsertUser(User user)
+        {
+            bool returnValue = false;
+            bd BD = new bd();
+            try
+            {
+                BD.query("insert into User (mail, password) values ('"+user.mail+"','"+user.password+"')");
+                BD.openConnection();
+                BD.executeConnection();
+                returnValue = true;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                BD.closeConnection();
+            }
+
+            return returnValue; 
+        }
 
         public static User SearchUser (String mail, String password )
         {

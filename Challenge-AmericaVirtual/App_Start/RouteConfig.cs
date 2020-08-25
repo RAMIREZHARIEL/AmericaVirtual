@@ -33,8 +33,8 @@ namespace Challenge_AmericaVirtual
 
             routes.MapRoute(
                 name: "Register",
-                url: "Account/Register",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                url: "Register",
+                defaults: new { controller = "Account", action = "Register", id = UrlParameter.Optional }
             );
 
 
