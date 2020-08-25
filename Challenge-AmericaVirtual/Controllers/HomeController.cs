@@ -1,16 +1,41 @@
-﻿using System;
+﻿using Challenge_AmericaVirtual.Models;
+using Challenge_AmericaVirtual.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace Challenge_AmericaVirtual.Controllers
 {
+
+
+    
+
+    [RoutePrefix("Home")]
+    [Route("{Action}")]
     public class HomeController : Controller
     {
+        [Route("~/")]
+        [Route("")]
+        [Route("Index")]
+        [HttpGet]
         public ActionResult Index()
         {
+            ViewBag.Username = null;
             return View();
+        }
+
+        
+
+        [HttpPost]
+        public ActionResult Index(String user, String password)
+        {
+            
+            
+            return View();
+
         }
 
         public ActionResult About()
@@ -26,5 +51,11 @@ namespace Challenge_AmericaVirtual.Controllers
 
             return View();
         }
+
+
+
+
+
+
     }
 }

@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Navigation";
+}
+
+<div id="Nav" class="navbar navbar-dark navbar-expand-md navbar-top">
+    <div class="container d-flex justify-content-between">
+        <a href="http://americavirtualsa.com/">
+            <img src="../Public/Img/Logo.png" class="mx-auto d-block m-4 logo" alt="Logo">
+            @Html.ActionLink("AMERICA VIRTUAL", "index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </a>
+        <ul class="navbar-nav ml-auto">
+                @{ if (ViewBag.Username == null)
+                    {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link smoothScroll btn" data-toggle="modal" id="btnRegister" href="#modalRegister">REGISTER</a>
+              </li>
+                <li class="nav-item dropdown">
+                    <a class=" nav-link smoothScroll btn" data-toggle="modal" id="btnLogin" href="#modalLogin">LOGIN</a>
+                </li>
+                        }
+                        else
+                        {
+                <li class="nav-item dropdown">
+                    <button class="btn btn-block dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> @ViewBag.Username</button>
+                    <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item"  href="/Logout">Salir</a>
+                    </div>
+                </li>
+                        }
+                    }
+
+            </ul>
+    </div>
+</div>
+
+
+

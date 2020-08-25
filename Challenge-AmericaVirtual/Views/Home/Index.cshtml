@@ -1,31 +1,218 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
+    <link rel="stylesheet" href="../Public/Css/main.css">
+    <script type="text/javascript" src="~/Scripts/main.js"></script>
+    <script type="text/javascript"
+            src="/scripts/jquery-1.2.3.min.js">
+    </script>
+    <title>@ViewBag.Title - America Virtual </title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/Scripts/script.js")
+</head>
+<body class="Body">
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+    
+    @Html.Partial("~/Views/Account/Login.cshtml")
+    @Html.Partial("~/Views/Account/Register.cshtml")
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    <div class="container ">
+        <div class="panel-title">
+            <h3 class="text-center text-uppercase active"> SERVICIO DE CLIMA</h3>
+            <hr style="border-color:#FF6859;" />
+        </div>
+        <div class="row">
+            <div class="col-md-6 ">
+                <div class="card">
+                    <div class="card-header text-center">
+                        Seleccione la zona
+                    </div>
+                    <div class="card card-body">
+
+                        <form>
+                            <div class="form-group ">
+                                <label> Pais</label>
+                                <br />
+                                <select class="custom-select  " autofocus>
+                                    <option class="optionSelect" selected> Seleccione un pais</option>
+                                    <option class="optionSelect"> 2</option>
+
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label> Ciudad</label>
+                                <br />
+                                <select class="custom-select">
+                                    <option class="optionSelect" selected> Seleccione una ciudad</option>
+                                    <option class="optionSelect"> 2</option>
+
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <button id="btnBuscar" name="btnBuscar" type="submit" class="btn btn-block btn-sm">BUSCAR</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+            <div class="col-md-6 ">
+                <div class="card">
+                    <div class="card-header text-center">
+                        Reporte
+                    </div>
+                    <div class="card card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        pais
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        Ciudad
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        Dia
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        Estado
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        Grados C
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        Grados F
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        IMG
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        Precipitaciones
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        Humedad
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        Viento
+                                    </div>
+                                </div>
+                            </div>
+
+                            Set room heater temperature
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="card card-body">
+            <div class="row">
+
+
+                <div class="col-md-2 mx-auto">
+                    <div class="row">
+                        Lunes
+                    </div>
+                    <div class="row">
+                        img
+                    </div>
+                    <div class="row">
+                        centigrads
+                    </div>
+                    <div class="row">
+                        farenhein
+                    </div>
+                </div>
+                <div class="col-md-2 mx-auto">
+                    <div class="row">
+                        Lunes
+                    </div>
+                    <div class="row">
+                        img
+                    </div>
+                    <div class="row">
+                        centigrads
+                    </div>
+                    <div class="row">
+                        farenhein
+                    </div>
+                </div>
+                <div class="col-md-2 mx-auto">
+                    <div class="row">
+                        Lunes
+                    </div>
+                    <div class="row">
+                        img
+                    </div>
+                    <div class="row">
+                        centigrads
+                    </div>
+                    <div class="row">
+                        farenhein
+                    </div>
+                </div>
+                <div class="col-md-2 mx-auto">
+                    <div class="row">
+                        Lunes
+                    </div>
+                    <div class="row">
+                        img
+                    </div>
+                    <div class="row">
+                        centigrads
+                    </div>
+                    <div class="row">
+                        farenhein
+                    </div>
+                </div>
+                <div class="col-md-2 mx-auto">
+                    <div class="row">
+                        Lunes
+                    </div>
+                    <div class="row">
+                        img
+                    </div>
+                    <div class="row">
+                        centigrads
+                    </div>
+                    <div class="row">
+                        farenhein
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+</body>
+</html>

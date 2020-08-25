@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+}
+
+
+<div class="form-group">
+    <div id="modalRegister" class="modal fade" role="form" aria-hidden="true" style="display:none">
+        <div class="modal-content">
+            <div class="modal-header">
+                Registrese en America Virtual!
+            </div>
+            <div class="modal-body">
+                <div id="modal-content">
+                    
+                        <form action="/Home/Account/Register" method="get" >
+
+                            <div class="form-group">
+                                <label>Usuario</label><br>
+                                <input type="email" autofocus name="user" class="input-group-sm" placeholder="Usuario" />
+
+                            </div>
+                            <div class="form-group">
+                                <label>Contraseña</label><br>
+                                <input type="password" name="password" placeholder="Contraseña" />
+                            </div>
+
+
+                            <div class="form-group">
+                                <br />
+                                <button type="submit" name="btnConfirmRegister" value="true" class="btn btn-block btn-sm"> REGISTRARSE! </button>
+
+                            </div>
+                        </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

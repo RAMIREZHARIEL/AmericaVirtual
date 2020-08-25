@@ -1,0 +1,72 @@
+﻿.Body {
+    background-color: #e4dada;
+    padding-bottom: 0em;
+    padding-right: 0em;
+    margin-right: 0;
+
+}
+
+.custom-select{
+    max-width: 800px;
+    width: 500px;
+    
+}
+.optionSelect{
+    font-size: 12px;
+
+}
+
+.modal-content {
+    position: fixed;
+    left: 900px;
+    top: 50px;
+    height: 300px;
+    width: 300px;
+}
+
+.modal-header{
+    text-align:center;
+    font-size: 15px;
+}
+
+
+#Nav {
+    background-color: #FF6859;
+    height: 50px;
+   
+}
+
+.dropdown-item {
+    color: #FF6859;
+}
+
+.logo {
+    height: 35px;
+}
+
+.logo-footer{
+    height:20px;
+    margin-top: 1px;
+}
+
+.card{
+    background-color: #ffffff;
+    height: 250px;
+}
+.card-header {
+    background-color: #ffffff;
+    color: #504ed1;
+    border-bottom-color: #504ed1;
+    font-size: 20px;
+}
+
+
+.btn-block {
+    background-color: #FF6859;
+}
+
+.container-footer {
+    background-color: #000000;
+    color: #ffffff;
+    padding-bottom: 1em;
+}
