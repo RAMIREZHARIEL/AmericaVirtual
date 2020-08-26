@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿<!--model List<Challenge_AmericaVirtual.Models.Country>-->
+
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -14,10 +17,13 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/Scripts/script.js")
+    @Scripts.Render("~/Scripts/main.js")
+    
+
 </head>
 <body class="Body">
 
-    
+
     @Html.Partial("~/Views/Account/Login.cshtml")
     @Html.Partial("~/Views/Account/Register.cshtml")
 
@@ -33,186 +39,167 @@
                         Seleccione la zona
                     </div>
                     <div class="card card-body">
+                        <div class="form-group ">
+                            <label> Pais</label>
+                            <br />
+                            @Html.Partial("~/Views/Zone/CountrySelector.cshtml")
+                        </div>
 
-                        <form>
-                            <div class="form-group ">
-                                <label> Pais</label>
-                                <br />
-                                <select class="custom-select  " autofocus>
-                                    <option class="optionSelect" selected> Seleccione un pais</option>
-                                    <option class="optionSelect"> 2</option>
-
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label> Ciudad</label>
-                                <br />
-                                <select class="custom-select">
-                                    <option class="optionSelect" selected> Seleccione una ciudad</option>
-                                    <option class="optionSelect"> 2</option>
-
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <button id="btnBuscar" name="btnBuscar" type="submit" class="btn btn-block btn-sm">BUSCAR</button>
-                            </div>
-                        </form>
+                        @Html.Partial("~/Views/Zone/ZoneSelector.cshtml")
                     </div>
-
                 </div>
-
-
-
-
             </div>
-            <div class="col-md-6 ">
-                <div class="card">
-                    <div class="card-header text-center">
-                        Reporte
-                    </div>
-                    <div class="card card-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        pais
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        Ciudad
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        Dia
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        Estado
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        Grados C
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        Grados F
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        IMG
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        Precipitaciones
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        Humedad
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        Viento
-                                    </div>
-                                </div>
-                            </div>
 
-                            Set room heater temperature
+
+
+                    <div class="col-md-6 ">
+                        <div class="card">
+                            <div class="card-header text-center">
+                                Reporte
+                            </div>
+                            <div class="card card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                pais
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                Ciudad
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                Dia
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                Estado
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                Grados C
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                Grados F
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                IMG
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                Precipitaciones
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                Humedad
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                Viento
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    Set room heater temperature
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <br />
+                <div class="card card-body">
+                    <div class="row">
+
+
+                        <div class="col-md-2 mx-auto">
+                            <div class="row">
+                                Lunes
+                            </div>
+                            <div class="row">
+                                img
+                            </div>
+                            <div class="row">
+                                centigrads
+                            </div>
+                            <div class="row">
+                                farenhein
+                            </div>
+                        </div>
+                        <div class="col-md-2 mx-auto">
+                            <div class="row">
+                                Lunes
+                            </div>
+                            <div class="row">
+                                img
+                            </div>
+                            <div class="row">
+                                centigrads
+                            </div>
+                            <div class="row">
+                                farenhein
+                            </div>
+                        </div>
+                        <div class="col-md-2 mx-auto">
+                            <div class="row">
+                                Lunes
+                            </div>
+                            <div class="row">
+                                img
+                            </div>
+                            <div class="row">
+                                centigrads
+                            </div>
+                            <div class="row">
+                                farenhein
+                            </div>
+                        </div>
+                        <div class="col-md-2 mx-auto">
+                            <div class="row">
+                                Lunes
+                            </div>
+                            <div class="row">
+                                img
+                            </div>
+                            <div class="row">
+                                centigrads
+                            </div>
+                            <div class="row">
+                                farenhein
+                            </div>
+                        </div>
+                        <div class="col-md-2 mx-auto">
+                            <div class="row">
+                                Lunes
+                            </div>
+                            <div class="row">
+                                img
+                            </div>
+                            <div class="row">
+                                centigrads
+                            </div>
+                            <div class="row">
+                                farenhein
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
             </div>
-        </div>
-        <br />
-        <div class="card card-body">
-            <div class="row">
-
-
-                <div class="col-md-2 mx-auto">
-                    <div class="row">
-                        Lunes
-                    </div>
-                    <div class="row">
-                        img
-                    </div>
-                    <div class="row">
-                        centigrads
-                    </div>
-                    <div class="row">
-                        farenhein
-                    </div>
-                </div>
-                <div class="col-md-2 mx-auto">
-                    <div class="row">
-                        Lunes
-                    </div>
-                    <div class="row">
-                        img
-                    </div>
-                    <div class="row">
-                        centigrads
-                    </div>
-                    <div class="row">
-                        farenhein
-                    </div>
-                </div>
-                <div class="col-md-2 mx-auto">
-                    <div class="row">
-                        Lunes
-                    </div>
-                    <div class="row">
-                        img
-                    </div>
-                    <div class="row">
-                        centigrads
-                    </div>
-                    <div class="row">
-                        farenhein
-                    </div>
-                </div>
-                <div class="col-md-2 mx-auto">
-                    <div class="row">
-                        Lunes
-                    </div>
-                    <div class="row">
-                        img
-                    </div>
-                    <div class="row">
-                        centigrads
-                    </div>
-                    <div class="row">
-                        farenhein
-                    </div>
-                </div>
-                <div class="col-md-2 mx-auto">
-                    <div class="row">
-                        Lunes
-                    </div>
-                    <div class="row">
-                        img
-                    </div>
-                    <div class="row">
-                        centigrads
-                    </div>
-                    <div class="row">
-                        farenhein
-                    </div>
-                </div>
-
-
-
-            </div>
-        </div>
-    </div>
 </body>
 </html>

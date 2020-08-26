@@ -1,0 +1,30 @@
+﻿
+
+@{
+    ViewBag.Title = "CountrySelector";
+    List<Challenge_AmericaVirtual.Models.Country> CountryList = Challenge_AmericaVirtual.Services.ZoneServices.CountryList();
+}
+
+<form   action="/CitySelect" method="post">
+
+<select class="custom-select" id="CountrySelected" name="CountrySelected" onchange="this.form.submit()"  autofocus>
+
+    @if (ViewBag.CountrySelected == null)
+    {
+        <option value="">Seleccione un pais</option>
+    }
+    else
+    {
+        <option value="">@ViewBag.CountrySelected</option>
+    }
+    @if (CountryList != null)
+    {
+        foreach (var country in CountryList)
+        {
+            <option class="optionSelect" value="@country.code"> @country.name</option>
+        }
+    }
+
+
+</select>
+</form>

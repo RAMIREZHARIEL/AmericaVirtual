@@ -13,28 +13,31 @@ namespace Challenge_AmericaVirtual.Controllers
              
         public ActionResult Login(String user, String password)
         {
-            User newUser = new User();
-            newUser = UserServices.SearchUser(user, password);
+            User newUser =  UserServices.SearchUser(user, password);
             if (newUser != null)
             {
                 ViewBag.Username = newUser.mail;
+
+            }
+            else{
+                Response.Write("<script>alert('Error al loguearse. Se redireccionara a la pagina de inicio.')</script>");
+
             }
             return View("~/Views/Home/Index.cshtml");
         }
 
         public ActionResult Register(String user, String password)
         {
-            User newUser = new User();
-            newUser.mail = user;
-            newUser.password = password;
+            User newUser = new User(user,password);
             if (UserServices.InsertUser(newUser))
             {
-                Response.Write("<script>alert('Registrado con exito! ')</script>");
+                Response.Write("<script>alert('Registrado con exito! Ingrese al sistema!')</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('Error al registrarse. Se redireccionara a la pagina de inicio.')</script>");
             }
             return View("~/Views/Home/Index.cshtml");
-
-
-
         }
         
     }

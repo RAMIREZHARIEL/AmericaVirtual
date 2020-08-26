@@ -24,6 +24,7 @@ namespace Challenge_AmericaVirtual.Controllers
         public ActionResult Index()
         {
             ViewBag.Username = null;
+            ViewBag.CountrySelected = null;
             return View();
         }
 
@@ -32,10 +33,7 @@ namespace Challenge_AmericaVirtual.Controllers
         [HttpPost]
         public ActionResult Index(String user, String password)
         {
-            
-            
             return View();
-
         }
 
         public ActionResult About()

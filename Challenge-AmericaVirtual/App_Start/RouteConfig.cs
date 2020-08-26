@@ -15,6 +15,25 @@ namespace Challenge_AmericaVirtual
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+            name: "WeatherSearch",
+            url: "WeatherSearch",
+            defaults: new { controller = "Zone", action = "WeatherSearch", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+            name: "CountrySelect",
+             url: "CountrySelect/{id}",
+             defaults: new { controller = "Zone", action = "Country", id = "{id}" }
+            );
+
+            routes.MapRoute(
+            name: "CitySelect",
+            url: "CitySelect",
+            defaults: new { controller = "Zone", action = "City", id = UrlParameter.Optional }
+            );
+
+
+            routes.MapRoute(
                name: "Logout",
                url: "Logout",
                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

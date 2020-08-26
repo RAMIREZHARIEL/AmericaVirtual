@@ -5,13 +5,9 @@ using System.Web;
 
 namespace Challenge_AmericaVirtual.Models
 {
-    public class Zone
+    public class Country
     {
-        public String country { get; set; }
-        public String city { get; set; }
-        public int id { get; set; }
-
-
-
+        public String code { get; set; }
+        public String name { get; set; }
     }
 }

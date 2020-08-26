@@ -12,7 +12,7 @@ namespace Challenge_AmericaVirtual.Services
     {
         public static bool InsertUser(User user)
         {
-            bool returnValue = false;
+            bool returnValue;
             bd BD = new bd();
             try
             {
@@ -20,6 +20,7 @@ namespace Challenge_AmericaVirtual.Services
                 BD.openConnection();
                 BD.executeConnection();
                 returnValue = true;
+                return returnValue; 
             }
             catch (Exception ex)
             {
@@ -30,8 +31,6 @@ namespace Challenge_AmericaVirtual.Services
             {
                 BD.closeConnection();
             }
-
-            return returnValue; 
         }
 
         public static User SearchUser (String mail, String password )
@@ -51,23 +50,17 @@ namespace Challenge_AmericaVirtual.Services
                     user.mail = (String)(reader["mail"]);
                     user.password = (String)(reader["password"]);
                     user.id =  Int32.Parse(reader["id"].ToString());
-
                 }
-
                 return user;
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally
             {
                 BD.closeConnection();
             }
-
-
         }
-
     }
 }
