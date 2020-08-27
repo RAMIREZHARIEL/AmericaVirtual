@@ -5,8 +5,48 @@
     margin-right: 0;
 
 }
-.pais{
-    color:gray;
+
+.LoginBox {
+    background-color: #e4dada;
+    height: 430px;
+}
+.title {
+    color: #FF6859;
+}
+
+.TitleLogout {
+    height: 50px;
+    color: black;
+    align-self: center;
+    position: fixed;
+    left: 460px;
+    top: 200px;
+    height: 300px;
+    width: 300px;
+}
+.LoginBtn {
+    height: 50px;
+    color: black;
+    align-self: center;
+    position: fixed;
+    left: 300px;
+    top: 300px;
+    height: 300px;
+    width: 50px;
+}
+.RegisterBtn {
+    height: 50px;
+    padding-right: 10em;
+    color: black;
+    align-self: center;
+    position: fixed;
+    left: 650px;
+    top: 300px;
+    height: 300px;
+    width: 50px;
+}
+.pais {
+    color: gray;
     font-size: 12px;
 }
 .ciudad {
@@ -59,7 +99,7 @@
     text-align: right;
     border-left: 2px solid #FF6859;
     padding-right: 2em;
-    height: 220px;
+    height: 279px;
 }
 
 
@@ -109,15 +149,35 @@
     margin-top: 1px;
 }
 
-.card{
+
+
+.cardFirstRow {
     background-color: #ffffff;
-    height: 250px;
+    height: 280px;
+    border: 2px solid #FF6859;
+    border-bottom-color: #FF6859;
+    border-left-color: #FF6859;
+    border-right-color: #FF6859;
+    border-top-color: #FF6859;
+    align-content:center;
+}
+.card {
+    background-color: #ffffff;
+    border-bottom-color: #FF6859;
+    border-left-color: #FF6859;
+    border-right-color: #FF6859;
+    border-top-color: #FF6859;
 }
 .card-header {
     background-color: #ffffff;
     color: #504ed1;
-    border-bottom-color: #504ed1;
-    
+    border-bottom-color: #FF6859;
+}
+
+.card-forecast {
+    height: 280px;
+    padding-left: 3em;
+   
 }
 
 
@@ -130,4 +190,7 @@
     background-color: #000000;
     color: #ffffff;
     padding-bottom: 1em;
+}
+.col-md-2 {
+   
 }

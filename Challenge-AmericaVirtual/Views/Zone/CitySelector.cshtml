@@ -1,7 +1,6 @@
 ﻿
 @{ 
     List<Challenge_AmericaVirtual.Models.City> CityList = Challenge_AmericaVirtual.Services.ZoneServices.CityList(ViewBag.CountrySelected);
-
 }
 
 <label> Ciudad</label>
@@ -10,6 +9,7 @@
 <!-- <form action="/WeatherSearch" method="get">-->
 <div class="form-group">
     <select class="custom-select" id="CitySelected" name="CitySelected">
+        <option class="optionSelect"> Seleccione una ciudad </option>
         @if (CityList != null)
         {
             foreach (var city in CityList)

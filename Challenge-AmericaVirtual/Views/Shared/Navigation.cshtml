@@ -9,7 +9,6 @@
             <img src="../Public/Img/Logo.png" class="mx-auto d-block m-4 logo" alt="Logo">
             @Html.ActionLink("AMERICA VIRTUAL", "index", "Home", new { area = "" }, new { @class = "navbar-brand" })
         </a>
-        
         <ul class="navbar-nav ml-auto">
                 @{ if (ViewBag.Username == null)
                     {
@@ -22,7 +21,7 @@
                         }
                         else
                         {
-                <li class="nav-item dropdown">
+                 <li class="nav-item dropdown">
                     <button class="btn btn-block dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> @ViewBag.Username</button>
                     <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item"  href="/Logout">Salir</a>

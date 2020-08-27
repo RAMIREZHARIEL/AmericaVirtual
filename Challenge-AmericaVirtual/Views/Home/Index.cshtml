@@ -22,58 +22,61 @@
 
 </head>
 <body class="Body">
-
-
-    @Html.Partial("~/Views/Account/Login.cshtml")
-    @Html.Partial("~/Views/Account/Register.cshtml")
-
     <div class="container ">
+        @Html.Partial("~/Views/Account/Login.cshtml")
+        @Html.Partial("~/Views/Account/Register.cshtml")
         <div class="panel-title">
             <h3 class="text-center text-uppercase active"> SERVICIO DE CLIMA</h3>
             <hr style="border-color:#FF6859;" />
         </div>
-        <div class="row">
-            <div class="col-md-6 ">
-                <div class="card">
-                    <div class="card-header text-center">
-                        Seleccione la zona
-                    </div>
-                    <div class="card card-body">
-                        <div class="form-group ">
-                            <label> Pais</label>
-                            <br />
-                            @Html.Partial("~/Views/Zone/CountrySelector.cshtml")
-                        </div>
+        <div class="panel-body">
 
-                        @Html.Partial("~/Views/Zone/ZoneSelector.cshtml")
-                    </div>
-                </div>
-            </div>
-
-
-
-                    <div class="col-md-6 ">
-                        <div class="card">
-                            <div class="card-header text-center">
-                                Reporte
-                            </div>
-                            <div  class="card card-body ">
-                                @Html.Partial("~/Views/Zone/ShowWeather.cshtml")
+            @{ if (ViewBag.Username != null)
+                {
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <div class="cardFirstRow">
+                                <div class="card-header text-center">
+                                    <h4 class="title">Seleccione la zona</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group ">
+                                        <label> Pais</label>
+                                        <br />
+                                        @Html.Partial("~/Views/Zone/CountrySelector.cshtml")
+                                    </div>
+                                    <div class="form-group ">
+                                        @Html.Partial("~/Views/Zone/ZoneSelector.cshtml")
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <div class="col-md-6 ">
+                            <div class="cardFirstRow">
+                                <div class="card-header text-center">
+                                    <h4 class="title" >Reporte</h4>
+                                </div>
+                                <div class=" card-body ">
+                                    @Html.Partial("~/Views/Zone/ShowWeather.cshtml")
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-        
-                <br />
-                <div class="row ">
-                    <div class="col-md-12 ">
-                        <div class="card">
-                          
+                    <br />
+                        
+                            
                                 @Html.Partial("~/Views/Zone/Forecast.cshtml")
                             
-                        </div>
-                    </div>
-                </div>
-            </div>
+                 
+                }
+                else
+                {
+                    @Html.Partial("~/Views/Home/Logout.cshtml")
+                }
+            }
+
+
+        </div>
+    </div>
 </body>
 </html>
