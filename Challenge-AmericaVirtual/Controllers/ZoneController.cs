@@ -13,7 +13,6 @@ namespace Challenge_AmericaVirtual.Controllers
         [HttpPost]
         public ActionResult Country()
         {
-            
             return View("~/Views/Home/Index.cshtml");
         }
 
@@ -29,8 +28,15 @@ namespace Challenge_AmericaVirtual.Controllers
         [HttpPost]
         public ActionResult WeatherSearch(FormCollection collection)
         {
+            ViewBag.CountrySelected = collection["CountrySelected"];
             ViewBag.CitySelected = collection["CitySelected"];
-            var wheater = ZoneServices.SearchWeather("a", 1);
+            var Forecast = ZoneServices.SearchWeather(ViewBag.CitySelected);
+            for (int i = 0; i < 8; i++)
+            {
+                String urlIcon = "http://openweathermap.org/img/wn/" + Forecast.daily[i].weather[0].icon + ".png";
+                Forecast.daily[i].weather[0].icon = urlIcon;
+            }
+            ViewBag.Forecast = Forecast;
             return View("~/Views/Home/Index.cshtml");
         }
 

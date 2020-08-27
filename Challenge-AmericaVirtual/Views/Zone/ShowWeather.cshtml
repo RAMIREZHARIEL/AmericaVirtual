@@ -1,0 +1,71 @@
+﻿
+@{
+
+    var Forecast = ViewBag.Forecast;
+    double Fahrenheit=0;
+    if (Forecast != null)
+    {
+         Fahrenheit = (Forecast.daily[0].temp.day * 1.8) + 32;
+    }
+    ViewBag.Title = "ShowWeather";
+}
+@{ if (Forecast != null)
+    {
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Pais: @ViewBag.CountrySelected</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Ciudad: @ViewBag.CitySelected</p>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p> °C: @Forecast.daily[0].temp.day </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p> °F: @Fahrenheit</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p> Humedad: @Forecast.daily[0].humidity   %</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p> @DateTime.Now.DayOfWeek.ToString()  /  @Forecast.daily[0].weather[0].main</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <img id="imgWeather" src="@Forecast.daily[0].weather[0].icon" />
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Presion: @Forecast.daily[0].pressure </p>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Viento: @Forecast.daily[0].wind_speed km/h</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+
+}

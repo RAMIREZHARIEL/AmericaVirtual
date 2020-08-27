@@ -15,6 +15,34 @@
     font-size: 12px;
 
 }
+#title-day{
+    text-align:center;
+   
+}
+
+#ForecastSeparator {
+    text-align: center;
+    
+}
+
+
+
+.vertical-divider div[class^="col-"] + div[class^="col-"] {
+    text-align: right;
+    border-left: 1px solid #FF6859;
+    height: 220px;
+}
+
+
+
+#imgWeather{
+    width: 80px;
+}
+
+#imgForecast {
+    width: 100px;
+    text-align: center;
+}
 
 .modal-content {
     position: fixed;
@@ -59,6 +87,7 @@
     border-bottom-color: #504ed1;
     font-size: 20px;
 }
+
 
 
 .btn-block {

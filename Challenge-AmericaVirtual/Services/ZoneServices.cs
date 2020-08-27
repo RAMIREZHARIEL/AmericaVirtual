@@ -11,18 +11,26 @@ namespace Challenge_AmericaVirtual.Services
 {
     public class ZoneServices
     {
-        public static Forecast SearchWeather(String Country, int City)
+        public static  Forecast.Result  SearchWeather(String City)
         {
+
+            try
+            {
+                var urlCoord = "http://api.openweathermap.org/data/2.5/weather?q=" + City + "&APPID=a86bcaa9eaa1e45dbd7db3679c52e59d&units=metric";
+                WebClient webClient = new WebClient();
+                var dates = webClient.DownloadString(urlCoord);
+                var CityCoord = JsonConvert.DeserializeObject<City.Result>(dates);
+
+                var urlForecast = "http://api.openweathermap.org/data/2.5/onecall?lat=" + CityCoord.coord.lat + "&lon=" + CityCoord.coord.lon + "&exclude=minutely,hourly&APPID=a86bcaa9eaa1e45dbd7db3679c52e59d&units=metric";
+                dates = webClient.DownloadString(urlForecast);
+                var Forecast = JsonConvert.DeserializeObject<Forecast.Result>(dates);
+                return Forecast;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
             
-            var url = "http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=a86bcaa9eaa1e45dbd7db3679c52e59d";
-            WebClient webClient = new WebClient();
-            var dates = webClient.DownloadString(url);
-            var rs = JsonConvert.DeserializeObject<Forecast.Result>(dates);
-            float humidity  = rs.main.humidity;
-            
-            
-            
-            return new Forecast();
         }
 
         public static List<City> CityList(String country)

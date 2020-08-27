@@ -4,23 +4,24 @@ using System.Linq;
 using System.Web;
 using Challenge_AmericaVirtual.Models;
 using Challenge_AmericaVirtual.Services;
-using System.Data.SQLite;
+using MySql.Data.MySqlClient;
 
 namespace Challenge_AmericaVirtual.Services
 {
     public class UserServices
     {
+
         public static bool InsertUser(User user)
         {
             bool returnValue;
-            bd BD = new bd();
+            DataBaseAdmin DB = new DataBaseAdmin();
             try
             {
-                BD.query("insert into User (mail, password) values ('"+user.mail+"','"+user.password+"')");
-                BD.openConnection();
-                BD.executeConnection();
+                DB.query("insert into User (mail, password) values ('" + user.mail + "','" + user.password + "')");
+                DB.openConnection();
+                DB.executeConnection();
                 returnValue = true;
-                return returnValue; 
+                return returnValue;
             }
             catch (Exception ex)
             {
@@ -29,27 +30,27 @@ namespace Challenge_AmericaVirtual.Services
             }
             finally
             {
-                BD.closeConnection();
+                DB.closeConnection();
             }
         }
 
-        public static User SearchUser (String mail, String password )
+        public static User SearchUser(String mail, String password)
         {
-                User user = null;
-                bd BD = new bd();
+            User user = null;
+            DataBaseAdmin DB = new DataBaseAdmin();
             try
             {
-                BD.query("select * from User where mail ='"+mail+"' and password='"+password+"'");
-                BD.openConnection();
-                BD.executeConnection();
-                SQLiteDataReader reader;
-                reader = BD.Comando.ExecuteReader();
-                while(reader.Read())
+                DB.query("select * from User where mail ='" + mail + "' and password='" + password + "'");
+                DB.openConnection();
+                DB.executeConnection();
+                MySqlDataReader reader;
+                reader = DB.Comando.ExecuteReader();
+                while (reader.Read())
                 {
                     user = new User();
                     user.mail = (String)(reader["mail"]);
                     user.password = (String)(reader["password"]);
-                    user.id =  Int32.Parse(reader["id"].ToString());
+                    user.id = Int32.Parse(reader["id"].ToString());
                 }
                 return user;
             }
@@ -59,8 +60,10 @@ namespace Challenge_AmericaVirtual.Services
             }
             finally
             {
-                BD.closeConnection();
+                DB.closeConnection();
             }
         }
+
+       
     }
 }

@@ -10,4 +10,5 @@ namespace Challenge_AmericaVirtual.Models
         public String code { get; set; }
         public String name { get; set; }
     }
+    
 }
