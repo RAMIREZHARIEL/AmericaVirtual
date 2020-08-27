@@ -17,7 +17,11 @@ namespace Challenge_AmericaVirtual.Services
             DataBaseAdmin DB = new DataBaseAdmin();
             try
             {
-                DB.query("insert into User (mail, password) values ('" + user.mail + "','" + user.password + "')");
+                String commandText = "insert into User (mail, password) values (@USER, @PASSWORD)";
+                DB.query(commandText);
+                DB.Comando.Parameters.Clear();
+                DB.Comando.Parameters.AddWithValue("@USER", user.mail);
+                DB.Comando.Parameters.AddWithValue("@PASSWORD", user.password);
                 DB.openConnection();
                 DB.executeConnection();
                 returnValue = true;
@@ -40,7 +44,11 @@ namespace Challenge_AmericaVirtual.Services
             DataBaseAdmin DB = new DataBaseAdmin();
             try
             {
-                DB.query("select * from User where mail ='" + mail + "' and password='" + password + "'");
+                String commandText = "select * from User where mail = @USER and password= @PASSWORD";
+                DB.query(commandText);
+                DB.Comando.Parameters.Clear();
+                DB.Comando.Parameters.AddWithValue("@USER", mail);
+                DB.Comando.Parameters.AddWithValue("@PASSWORD", password);
                 DB.openConnection();
                 DB.executeConnection();
                 MySqlDataReader reader;

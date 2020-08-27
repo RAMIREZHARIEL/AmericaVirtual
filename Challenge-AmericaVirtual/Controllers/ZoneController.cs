@@ -16,8 +16,6 @@ namespace Challenge_AmericaVirtual.Controllers
             return View("~/Views/Home/Index.cshtml");
         }
 
-
-
         [HttpPost]
         public ActionResult City(FormCollection collection)
         {
@@ -32,6 +30,7 @@ namespace Challenge_AmericaVirtual.Controllers
             ViewBag.Username = collection["user"];
             ViewBag.CountrySelected = collection["CountrySelected"];
             ViewBag.CitySelected = collection["CitySelected"];
+
             var Forecast = ZoneServices.SearchWeather(ViewBag.CitySelected);
             for (int i = 0; i < 8; i++)
             {
@@ -41,9 +40,5 @@ namespace Challenge_AmericaVirtual.Controllers
             ViewBag.Forecast = Forecast;
             return View("~/Views/Home/Index.cshtml");
         }
-
-
-
-
     }
 }

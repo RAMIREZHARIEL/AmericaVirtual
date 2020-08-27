@@ -57,7 +57,7 @@ namespace Challenge_AmericaVirtual.Controllers
                         Response.Write("<script>alert('Registrado con exito.')</script>");
 
                     }
-
+              
                 }
                 return View("~/Views/Home/Index.cshtml");
             }
