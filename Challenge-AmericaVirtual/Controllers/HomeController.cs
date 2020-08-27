@@ -23,12 +23,8 @@ namespace Challenge_AmericaVirtual.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            ViewBag.Username = null;
-            ViewBag.CountrySelected = null;
             return View();
         }
-
-        
 
         [HttpPost]
         public ActionResult Index(String user, String password)

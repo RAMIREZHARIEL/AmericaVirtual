@@ -4,12 +4,13 @@
 }
 
 <form action="/WeatherSearch" method="post">
+    <input type="hidden" name="user" value="@ViewBag.Username" />
 
-            <div class="form-group ">
-                @Html.Partial("~/Views/Zone/CitySelector.cshtml")
-                <input type="hidden" name="CountrySelected" id="Country" value="@ViewBag.CountrySelected" />
-            </div>
-            <div class="form-group">
-                <button id="btnSearch" name="btnSearch" value="Pressed" type="submit" class="btn btn-block btn-sm">BUSCAR</button>
-            </div>
+    <div class="form-group ">
+        @Html.Partial("~/Views/Zone/CitySelector.cshtml")
+        <input type="hidden" name="CountrySelected" id="Country" value="@ViewBag.CountrySelected" />
+    </div>
+    <div class="form-group">
+        <button id="btnSearch" name="btnSearch" value="Pressed" type="submit" class="btn btn-block btn-sm">BUSCAR</button>
+    </div>
 </form>

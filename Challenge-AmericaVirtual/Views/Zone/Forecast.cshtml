@@ -4,38 +4,35 @@
     double Fahrenheit = 0;
     ViewBag.Title = "Forecast";
 }
-@if (Forecast != null) { 
-
-<div class="row vertical-divider">
-   
-        @for (int i = 1; i < 6; i++)
-        {
-            Fahrenheit = (Forecast.daily[i].temp.day * 1.8) + 32;
-            <div class="col-md-2 mx-auto">
-                <div class="row">
-                    <h4>  @DateTime.Now.AddDays(i).DayOfWeek.ToString() </h4>
+@if (Forecast != null)
+{
+    <div class="card card-body ">
+        <div class="row vertical-divider">
+            @for (int i = 1; i < 6; i++)
+            {
+                Fahrenheit = (Forecast.daily[i].temp.day * 1.8) + 32;
+                <div class="col-md-2 mx-auto">
+                    <div class="row">
+                        <h4 class="ForecastDay">  @DateTime.Now.AddDays(i).DayOfWeek.ToString() </h4>
+                    </div>
+                    <div class="row">
+                        <img id="imgForecast" src="@Forecast.daily[i].weather[0].icon" />
+                    </div>
+                    <div class="row">
+                        <h4 class="Temperatura">   °C @Forecast.daily[i].temp.day</h4>
+                    </div>
+                    <div class="row">
+                        <h4 class="TemperaturaF"> °F @Fahrenheit</h4>
+                    </div>
                 </div>
-                <div class="row">
-                    <img id="imgForecast" src="@Forecast.daily[i].weather[0].icon" />
-                </div>
-
-                <div class="row">
-                    <p>   °C @Forecast.daily[i].temp.day</p>
-                </div>
-                <div class="row">
-                    <p> °F @Fahrenheit</p>
-                </div>
-            </div>
-
-        }
-    
-  
+            }
+        </div>
     </div>
         }
-    
 
 
 
 
- 
+
+
 

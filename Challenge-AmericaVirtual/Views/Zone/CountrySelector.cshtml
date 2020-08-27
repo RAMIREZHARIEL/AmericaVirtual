@@ -6,6 +6,7 @@
 }
 
 <form   action="/CitySelect" method="post">
+    <input type="hidden" name="user" value="@ViewBag.Username"/>
 
 <select class="custom-select" id="CountrySelected" name="CountrySelected" onchange="this.form.submit()"  autofocus>
 

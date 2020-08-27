@@ -151,7 +151,6 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Zone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\bd.cs" />
     <Compile Include="Services\DataBaseAdmin.cs" />
     <Compile Include="Services\UserServices.cs" />
     <Compile Include="Services\ZoneServices.cs" />

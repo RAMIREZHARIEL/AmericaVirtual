@@ -20,7 +20,6 @@ namespace Challenge_AmericaVirtual.Services
                 WebClient webClient = new WebClient();
                 var dates = webClient.DownloadString(urlCoord);
                 var CityCoord = JsonConvert.DeserializeObject<City.Result>(dates);
-
                 var urlForecast = "http://api.openweathermap.org/data/2.5/onecall?lat=" + CityCoord.coord.lat + "&lon=" + CityCoord.coord.lon + "&exclude=minutely,hourly&APPID=a86bcaa9eaa1e45dbd7db3679c52e59d&units=metric";
                 dates = webClient.DownloadString(urlForecast);
                 var Forecast = JsonConvert.DeserializeObject<Forecast.Result>(dates);

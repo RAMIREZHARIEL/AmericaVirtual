@@ -21,6 +21,7 @@ namespace Challenge_AmericaVirtual.Controllers
         [HttpPost]
         public ActionResult City(FormCollection collection)
         {
+            ViewBag.Username = collection["user"];
             ViewBag.CountrySelected = collection["CountrySelected"];
             return View("~/Views/Home/Index.cshtml");
         }
@@ -28,6 +29,7 @@ namespace Challenge_AmericaVirtual.Controllers
         [HttpPost]
         public ActionResult WeatherSearch(FormCollection collection)
         {
+            ViewBag.Username = collection["user"];
             ViewBag.CountrySelected = collection["CountrySelected"];
             ViewBag.CitySelected = collection["CitySelected"];
             var Forecast = ZoneServices.SearchWeather(ViewBag.CitySelected);
