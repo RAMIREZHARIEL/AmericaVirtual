@@ -3,12 +3,14 @@
     ViewBag.Title = "Navigation";
 }
 
-<div id="Nav" class="navbar navbar-dark navbar-expand-md navbar-top">
+<div id="Nav" class="navbar navbar-static-top navbar-expand-md ">
     <div class="container d-flex justify-content-between">
         <a href="http://americavirtualsa.com/">
             <img src="../Public/Img/Logo.png" class="mx-auto d-block m-4 logo" alt="Logo">
-            @Html.ActionLink("AMERICA VIRTUAL", "index", "Home", new { area = "" }, new { @class = "navbar-brand" })
         </a>
+        <a href="http://americavirtualsa.com/">
+            <h5 style="color:white">AMERICA VIRTUAL</h5>
+           </a>         
         <ul class="navbar-nav ml-auto">
                 @{ if (ViewBag.Username == null)
                     {

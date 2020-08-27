@@ -13,31 +13,60 @@ namespace Challenge_AmericaVirtual.Controllers
              
         public ActionResult Login(String user, String password)
         {
-            User newUser =  UserServices.SearchUser(user, password);
-            if (newUser != null)
+
+            try
             {
-                ViewBag.Username = newUser.mail;
-
+                User newUser = UserServices.SearchUser(user, password);
+                if (newUser != null)
+                {
+                    ViewBag.Username = newUser.mail;
+                }
+                else
+                {
+                    Response.Write("<script>alert('Error al loguearse. Se redireccionara a la pagina de inicio.')</script>");
+                }
+                return View("~/Views/Home/Index.cshtml");
             }
-            else{
-                Response.Write("<script>alert('Error al loguearse. Se redireccionara a la pagina de inicio.')</script>");
+            catch (Exception ex)
+            {
 
+                throw ex;
             }
-            return View("~/Views/Home/Index.cshtml");
+            
         }
 
         public ActionResult Register(String user, String password)
         {
-            User newUser = new User(user,password);
-            if (UserServices.InsertUser(newUser))
+
+            try
             {
-                Response.Write("<script>alert('Registrado con exito! Ingrese al sistema!')</script>");
+                User newUser = UserServices.SearchUser(user, password);
+                if (newUser != null)
+                {
+                    Response.Write("<script>alert('Usuario ya registrado.')</script>");
+                }
+                else
+                {
+                    newUser = new User(user, password);
+                    if (!UserServices.InsertUser(newUser))
+                    {
+                        Response.Write("<script>alert('Error al registrarse. Se redireccionara a la pagina de inicio.')</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Registrado con exito.')</script>");
+
+                    }
+
+                }
+                return View("~/Views/Home/Index.cshtml");
             }
-            else
+            catch (Exception ex)
             {
-                Response.Write("<script>alert('Error al registrarse. Se redireccionara a la pagina de inicio.')</script>");
+
+                throw ex;
             }
-            return View("~/Views/Home/Index.cshtml");
+            
         }
         
     }

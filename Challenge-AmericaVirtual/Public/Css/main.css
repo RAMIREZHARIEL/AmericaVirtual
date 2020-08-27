@@ -58,10 +58,9 @@
     font-size: 25px;
 
 }
-.ForecastDay {
+#ForecastDay {
     color: black;
-    font-size: 20px;
-    text-align: center;
+    font-size: 23px;
 }
 .Dia {
     color: black;
@@ -96,9 +95,9 @@
 
 
 .vertical-divider div[class^="col-"] + div[class^="col-"] {
-    text-align: right;
-    border-left: 2px solid #FF6859;
-    padding-right: 2em;
+ 
+    border-left: 1px solid #FF6859;
+   
     height: 279px;
 }
 
@@ -177,7 +176,11 @@
 .card-forecast {
     height: 280px;
     padding-left: 3em;
-   
+    background-color: #ffffff;
+    border-bottom-color: #FF6859;
+    border-left-color: #FF6859;
+    border-right-color: #FF6859;
+    border-top-color: #FF6859;
 }
 
 

@@ -6,30 +6,46 @@ using System.Web;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace Challenge_AmericaVirtual.Services
 {
     public class ZoneServices
     {
-        public static  Forecast.Result  SearchWeather(String City)
+        public static Forecast.Result SearchWeather(String city)
         {
 
             try
             {
-                var urlCoord = "http://api.openweathermap.org/data/2.5/weather?q=" + City + "&APPID=a86bcaa9eaa1e45dbd7db3679c52e59d&units=metric";
-                WebClient webClient = new WebClient();
-                var dates = webClient.DownloadString(urlCoord);
-                var CityCoord = JsonConvert.DeserializeObject<City.Result>(dates);
-                var urlForecast = "http://api.openweathermap.org/data/2.5/onecall?lat=" + CityCoord.coord.lat + "&lon=" + CityCoord.coord.lon + "&exclude=minutely,hourly&APPID=a86bcaa9eaa1e45dbd7db3679c52e59d&units=metric";
-                dates = webClient.DownloadString(urlForecast);
-                var Forecast = JsonConvert.DeserializeObject<Forecast.Result>(dates);
+                var Coords = SearchCoord(city);
+
+                var Forecast = SearchForecast(Coords);
+
                 return Forecast;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            
+
+        }
+
+        private static  Forecast.Result SearchForecast(City.Result city)
+        {
+            var urlForecast = "http://api.openweathermap.org/data/2.5/onecall?lat=" + city.coord.lat + "&lon=" + city.coord.lon + "&exclude=minutely,hourly&APPID=a86bcaa9eaa1e45dbd7db3679c52e59d&units=metric";
+            WebClient webClient = new WebClient();
+            var dates = webClient.DownloadString(urlForecast);
+            var Forecast = JsonConvert.DeserializeObject<Forecast.Result>(dates);
+            return Forecast;
+        }
+
+        private static City.Result SearchCoord(string city)
+        {
+            var urlCoord = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=a86bcaa9eaa1e45dbd7db3679c52e59d&units=metric";
+            WebClient webClient = new WebClient();
+            var dates = webClient.DownloadString(urlCoord);
+            var CityCoord = JsonConvert.DeserializeObject<City.Result>(dates);
+            return CityCoord;
         }
 
         public static List<City> CityList(String country)
